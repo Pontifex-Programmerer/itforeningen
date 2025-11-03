@@ -1,0 +1,24 @@
+<%-include('./partials/head.ejs') %>
+<section class="employee">
+    <form class="search">
+        <input type="text" name="name" id="searchfield" action="/get-member">
+        <button type="submit">search</button>
+    </form>
+    <span class="name">
+        <h1><%=firstName%></h1>
+        <h1><%=lastName%></h1>
+    </span>
+    <div class="image-data">
+        <img src=<%= imageUrl %> alt="image of the employee">
+        <div class="data">
+            <ul>
+                <li>Birthyear: <%=birthYear %></li>
+                <li>Role: <%=role %></li>
+                <li>Level: <%=level %></li>
+                <li>Experience: <%=experienceYears%></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<%-include('./partials/foot.ejs') %>
