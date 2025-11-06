@@ -1,0 +1,35 @@
+<%-include('./partials/head') %>
+<%-include('./partials/navbar') %>
+
+<section id="search-field" >
+    <form action="/medlemmer/search" method="get">
+        <p class="message-field">
+            <% if(typeof message !== 'undefined') { %>
+                <%=message%> 
+            <% } else { %>
+                Søk etter et medlem ved å skrive inn navn i søkefeltet under.
+            <% } %>   
+        </p>
+        <input type="text" name="name" id="searchfield" placeholder="Søk etter medlem...">
+        <button type="submit">Søk</button>
+    </form>
+</section>
+
+<% if(typeof searchResult !== 'undefined' && Array.isArray(searchResult)) { %>
+    <% for(employee of searchResult) { %>
+        <%-include('./partials/employee', {
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            birthYear: employee.birthYear,
+            role: employee.role,
+            level: employee.level,
+            experienceYears: employee.experienceYears,
+            gender: employee.gender,
+            salary: employee.salary,
+            socialSecurityNumber: employee.socialSecurityNumber,
+            imageUrl: employee.imageUrl
+        }) %>
+    <% } %>
+<% } %>
+
+<%-include('./partials/foot') %>

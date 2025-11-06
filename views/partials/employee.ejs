@@ -1,12 +1,6 @@
-<%-include('./partials/head.ejs') %>
-<section class="employee">
-    <form class="search">
-        <input type="text" name="name" id="searchfield" action="/get-member">
-        <button type="submit">search</button>
-    </form>
+<section class="employee-card">
     <span class="name">
-        <h1><%=firstName%></h1>
-        <h1><%=lastName%></h1>
+        <h1><%=firstName%> <%=lastName%></h1>
     </span>
     <div class="image-data">
         <img src=<%= imageUrl %> alt="image of the employee">
@@ -16,9 +10,9 @@
                 <li>Role: <%=role %></li>
                 <li>Level: <%=level %></li>
                 <li>Experience: <%=experienceYears%></li>
+                <li>Salary: <%=salary%></li>
+                <li>SocialSecurity: <%=socialSecurityNumber%></li>
             </ul>
         </div>
     </div>
 </section>
-
-<%-include('./partials/foot.ejs') %>

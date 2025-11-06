@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const {
-    findOneMember
+    findOneMemberByQuery,
+    findOneMemberByParam,
+    searchPage
 } = require('../controllers/member_controller');
 
-router.get('/get-member', findOneMember);
+router.get('/medlemmer/search', searchPage);
+router.get('/medlemmer', findOneMemberByQuery);
+router.get('/medlemmer/:name', findOneMemberByParam);
 
 module.exports=router;
